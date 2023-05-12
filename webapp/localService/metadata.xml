@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData">
+    <edmx:Reference Uri="./sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMON',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="Common"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="./sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_CAPABILITIES',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="Org.OData.Capabilities.V1" Alias="Capabilities"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="./sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMUNICATION',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.Communication.v1" Alias="Communication"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="./sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_AGGREGATION',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="Org.OData.Aggregation.V1" Alias="Aggregation"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="./sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_PERSONALDATA',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.PersonalData.v1" Alias="PersonalData"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="./sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_VALIDATION',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="Org.OData.Validation.V1" Alias="Validation"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="./sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_ANALYTICS',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.Analytics.v1" Alias="Analytics"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="./sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_MEASURES',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="Org.OData.Measures.V1" Alias="Measures"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="./sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_UI',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.UI.v1" Alias="UI"/>
+    </edmx:Reference>
+    <edmx:DataServices m:DataServiceVersion="2.0">
+        <Schema Namespace="cds_zui_c_rap_s_checkin_checkout" xml:lang="en" sap:schema-version="1" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+            <EntityType Name="ZC_RAP_P_CHECKIN_CHECKOUTType" sap:label="Projection View for CheckIn Check Out" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Aufnr"/>
+                    <PropertyRef Name="Aufpl"/>
+                    <PropertyRef Name="Zresource"/>
+                    <PropertyRef Name="Userid"/>
+                    <PropertyRef Name="Process"/>
+                    <PropertyRef Name="SysChkinDate"/>
+                    <PropertyRef Name="SysChkinTime"/>
+                </Key>
+                <Property Name="Aufnr" Type="Edm.String" Nullable="false" MaxLength="12" sap:display-format="UpperCase" sap:filter-restriction="multi-value" sap:required-in-filter="false" sap:label="Order" sap:quickinfo="Order Number" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="Aufpl" Type="Edm.String" Nullable="false" MaxLength="4" sap:display-format="UpperCase" sap:filter-restriction="multi-value" sap:required-in-filter="false" sap:label="Operation" sap:quickinfo="Undefined range (can be used for patch levels)" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="Zresource" Type="Edm.String" Nullable="false" MaxLength="100" sap:display-format="UpperCase" sap:filter-restriction="multi-value" sap:required-in-filter="false" sap:label="Equipment" sap:quickinfo="Resource"/>
+                <Property Name="Userid" Type="Edm.String" Nullable="false" MaxLength="12" sap:display-format="UpperCase" sap:filter-restriction="multi-value" sap:required-in-filter="false" sap:label="User" sap:quickinfo="User Name in User Master Record"/>
+                <Property Name="Process" Type="Edm.String" Nullable="false" MaxLength="10" sap:display-format="UpperCase" sap:label="Phase" sap:quickinfo="Process"/>
+                <Property Name="SysChkinDate" Type="Edm.DateTime" Nullable="false" Precision="0" sap:display-format="Date" sap:label="System Checkin Date" sap:quickinfo="System Check-In Date"/>
+                <Property Name="SysChkinTime" Type="Edm.Time" Nullable="false" Precision="0" sap:label="System CheckIn Time" sap:quickinfo="System Check-In Time"/>
+                <Property Name="ChkinDate" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:filter-restriction="single-value" sap:required-in-filter="false" sap:label="CheckIn Date" sap:quickinfo="Check-In Date"/>
+                <Property Name="ChkinTime" Type="Edm.Time" Precision="0" sap:label="CheckIn Time" sap:quickinfo="Check-In Time"/>
+                <Property Name="ChkoutDate" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:filter-restriction="single-value" sap:required-in-filter="false" sap:label="Checkout Date" sap:quickinfo="Check-Out Date"/>
+                <Property Name="ChkoutTime" Type="Edm.Time" Precision="0" sap:label="Checkout Time" sap:quickinfo="Check-Out Time"/>
+                <Property Name="SysChkoutDate" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="System Checkout Date" sap:quickinfo="System Check-Out Date"/>
+                <Property Name="SysChkoutTime" Type="Edm.Time" Precision="0" sap:label="System Checkout Time" sap:quickinfo="System Check-Out Time"/>
+                <Property Name="Status" Type="Edm.String" MaxLength="20" sap:display-format="UpperCase" sap:filter-restriction="multi-value" sap:required-in-filter="false" sap:label="Status" sap:quickinfo="Labor Confirmation Status"/>
+                <Property Name="YieldQty" Type="Edm.Decimal" Precision="13" Scale="3" sap:unit="UOM" sap:label="Yield Qty" sap:quickinfo="Planned Total Order Quantity"/>
+                <Property Name="ScrapQty" Type="Edm.Decimal" Precision="13" Scale="3" sap:unit="UOM" sap:label="Scrap Qty" sap:quickinfo="Planned Scrap Quantity"/>
+                <Property Name="ScrapType" Type="Edm.String" MaxLength="10" sap:label="Scrap Type"/>
+                <Property Name="Execution" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Execution"/>
+                <Property Name="SetupTime" Type="Edm.Time" Precision="0" sap:label="Setup Time"/>
+                <Property Name="SetupLabor" Type="Edm.Time" Precision="0" sap:label="Setup Labor"/>
+                <Property Name="RunTime" Type="Edm.Time" Precision="0" sap:label="Run Time"/>
+                <Property Name="RunLabor" Type="Edm.Time" Precision="0" sap:label="Run Labor"/>
+                <Property Name="TeardownTime" Type="Edm.Time" Precision="0" sap:label="Teardown Time"/>
+                <Property Name="TeardownLabor" Type="Edm.Time" Precision="0" sap:label="Teardown Labor"/>
+                <Property Name="TargetEfficiency" Type="Edm.String" MaxLength="4" sap:display-format="NonNegative" sap:label="Labor Allocation"/>
+                <Property Name="LaborDivisor" Type="Edm.String" MaxLength="3" sap:display-format="NonNegative" sap:label="Labor Divisor"/>
+                <Property Name="TxType" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase" sap:label="Tx Type"/>
+                <Property Name="ChkinError" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase" sap:label="Check-In Error"/>
+                <Property Name="ChkoutError" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase" sap:label="Check-Out Error"/>
+                <Property Name="PgiError" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase" sap:label="Goods Issue Error"/>
+                <Property Name="ChkinTimeMod" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase" sap:label="Check-In Time Mod." sap:quickinfo="Check-In Time Modified"/>
+                <Property Name="ChkoutTimeMod" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase" sap:label="Check-Out Time Mod." sap:quickinfo="Check-Out Time Modified"/>
+                <Property Name="ConfNo" Type="Edm.String" MaxLength="10" sap:display-format="NonNegative" sap:label="Confirmation" sap:quickinfo="Completion confirmation number for the operation"/>
+                <Property Name="ConfCnt" Type="Edm.String" MaxLength="8" sap:display-format="NonNegative" sap:label="Counter" sap:quickinfo="Confirmation counter"/>
+                <Property Name="MatDoc" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Material Document" sap:quickinfo="Number of Material Document"/>
+                <Property Name="DocYear" Type="Edm.String" MaxLength="4" sap:display-format="NonNegative" sap:label="Material Doc. Year" sap:quickinfo="Material Document Year"/>
+                <Property Name="Type" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase" sap:label="Message type" sap:quickinfo="Message type: S Success, E Error, W Warning, I Info, A Abort"/>
+                <Property Name="Message" Type="Edm.String" MaxLength="220" sap:display-format="UpperCase" sap:label="Message Text"/>
+                <Property Name="ChkoutFlag" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase" sap:label="Single-Character Flag" sap:heading=""/>
+                <Property Name="UOM" Type="Edm.String" MaxLength="3" sap:label="Operation Unit" sap:quickinfo="Operation Unit of Measure" sap:semantics="unit-of-measure"/>
+            </EntityType>
+            <EntityContainer Name="cds_zui_c_rap_s_checkin_checkout_Entities" m:IsDefaultEntityContainer="true" sap:message-scope-supported="true" sap:supported-formats="atom json xlsx">
+                <EntitySet Name="ZC_RAP_P_CHECKIN_CHECKOUT" EntityType="cds_zui_c_rap_s_checkin_checkout.ZC_RAP_P_CHECKIN_CHECKOUTType" sap:creatable="false" sap:searchable="true" sap:content-version="1"/>
+            </EntityContainer>
+            <Annotations Target="cds_zui_c_rap_s_checkin_checkout.cds_zui_c_rap_s_checkin_checkout_Entities" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ApplyMultiUnitBehaviorForSortingAndFiltering" Bool="true"/>
+                <Annotation Term="Aggregation.ApplySupported">
+                    <Record>
+                        <PropertyValue Property="Transformations">
+                            <Collection>
+                                <String>aggregate</String>
+                                <String>groupby</String>
+                                <String>filter</String>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="Rollup" EnumMember="None"/>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="cds_zui_c_rap_s_checkin_checkout.cds_zui_c_rap_s_checkin_checkout_Entities/ZC_RAP_P_CHECKIN_CHECKOUT" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Capabilities.FilterRestrictions">
+                    <Record>
+                        <PropertyValue Property="FilterExpressionRestrictions">
+                            <Collection>
+                                <Record>
+                                    <PropertyValue Property="Property" PropertyPath="Aufnr"/>
+                                    <PropertyValue Property="AllowedExpressions" String="MultiValue"/>
+                                </Record>
+                                <Record>
+                                    <PropertyValue Property="Property" PropertyPath="Aufpl"/>
+                                    <PropertyValue Property="AllowedExpressions" String="MultiValue"/>
+                                </Record>
+                                <Record>
+                                    <PropertyValue Property="Property" PropertyPath="Zresource"/>
+                                    <PropertyValue Property="AllowedExpressions" String="MultiValue"/>
+                                </Record>
+                                <Record>
+                                    <PropertyValue Property="Property" PropertyPath="Userid"/>
+                                    <PropertyValue Property="AllowedExpressions" String="MultiValue"/>
+                                </Record>
+                                <Record>
+                                    <PropertyValue Property="Property" PropertyPath="ChkinDate"/>
+                                    <PropertyValue Property="AllowedExpressions" String="SingleValue"/>
+                                </Record>
+                                <Record>
+                                    <PropertyValue Property="Property" PropertyPath="ChkoutDate"/>
+                                    <PropertyValue Property="AllowedExpressions" String="SingleValue"/>
+                                </Record>
+                                <Record>
+                                    <PropertyValue Property="Property" PropertyPath="Status"/>
+                                    <PropertyValue Property="AllowedExpressions" String="MultiValue"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="cds_zui_c_rap_s_checkin_checkout.ZC_RAP_P_CHECKIN_CHECKOUTType" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.SemanticKey">
+                    <Collection>
+                        <PropertyPath>Aufnr</PropertyPath>
+                    </Collection>
+                </Annotation>
+            </Annotations>
+            <atom:link rel="self" href="https://vhacud01ci.us4.sap.acumed.net:44300/sap/opu/odata/sap/ZSERVICE_CHECKIN_CHECKOUT/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+            <atom:link rel="latest-version" href="https://vhacud01ci.us4.sap.acumed.net:44300/sap/opu/odata/sap/ZSERVICE_CHECKIN_CHECKOUT/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>
